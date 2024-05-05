@@ -5,7 +5,6 @@ Import-Module posh-git
 $PSStyle.FileInfo.Directory = ""
 
 # oh-my-posh
-# oh-my-posh init pwsh | Invoke-Expression
 oh-my-posh init pwsh --config 'https://raw.githubusercontent.com/maxstolly/rose-pine.omp/main/rose-pine.omp.json' | Invoke-Expression
 
 # Reload Profile
@@ -15,9 +14,6 @@ function reload-profile {
 
 # edit profile with nvim
 function ep { nvim $PROFILE }
-
-
-# Alias
 
 # touch to create file
 function touch($file) { "" | Out-File $file -Encoding ASCII }
@@ -44,25 +40,17 @@ function unzip ($file) {
 }
 
 # git shortcuts
-
 function gs { git status }
 function ga { git add * }
-# TODO: Herausfinden wie der gc command funktioniert
-# function gc { param($m) git commit -m "$m" }
 function gcom { 
     git add .
     git commit -m "$args" }
 function gpu { git push -u origin main }
-# git alles in einem
 function lazyg {
     git add .
     git commit -m "$args"
     git push
 }
-
-# 
-# TODO: Commands außer pgrep und pkill testen
-#
 
 function sed($file, $find, $replace) {
     (Get-Content $file).replace("$find", $replace) | Set-Content $file
@@ -94,7 +82,7 @@ function tail {
   Get-Content $Path -Tail $n
 }
 
-# sh256 für downloads
+# sh256 and 512 for downloads
 function sha256 { Get-FileHash -Algorithm SHA256 $args }
 function sha512 { Get-FileHash -Algorithm SHA512 $args }
 
