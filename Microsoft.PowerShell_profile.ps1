@@ -1,7 +1,7 @@
 # posh-git
 Import-Module posh-git
 
-# Disable Highlight for Directorys
+# Disable Highlight for Directorys   
 $PSStyle.FileInfo.Directory = ""
 
 # oh-my-posh
@@ -41,7 +41,7 @@ function unzip ($file) {
 
 # git shortcuts
 function gs { git status }
-function ga { git add * }
+function ga { git add . }
 function gcom { 
     git add .
     git commit -m "$args" }
